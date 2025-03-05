@@ -10,7 +10,7 @@ import { Navigation } from "swiper/modules";
 import { twMerge } from "tailwind-merge";
 import dynamic from "next/dynamic";
 import casesData from '../data/cases.json';
-import React from 'react';
+import React, { FC } from 'react';
 import { useTelegram } from '@/lib/telegram';
 
 // Кейс
@@ -67,7 +67,7 @@ const MobileDetector = dynamic(() => Promise.resolve(({ children }: { children: 
     return <>{children(isMobile)}</>;
 }), { ssr: false });
 
-const Cases = () => {
+const Cases: FC = () => {
     const { tg } = useTelegram();
     const [cases, setCases] = useState<Case[]>([]);
     const [selectedCase, setSelectedCase] = useState<Case & { images: string[] } | null>(null);
