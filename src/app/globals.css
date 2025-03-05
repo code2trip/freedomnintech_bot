@@ -1,0 +1,77 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+    /* Основные стили для body и общие настройки */
+    body {
+        background: white;
+    }
+
+    /* Стили для кнопок */
+    .btn {
+        @apply px-4 py-2 rounded-lg font-medium inline-flex items-center justify-center tracking-tight;
+    }
+    .btn-primary {
+        @apply bg-[#21c403] text-white;
+    }
+    .btn-text {
+        @apply text-[#21c403] bg-transparent;
+    }
+
+    /* Стили для заголовков и описаний */
+    .section-title {
+        @apply text-center text-3xl md:text-[54px] md:leading-[60px] font-bold tracking-tighter bg-gradient-to-b from-[#6c6c6c] to-[#000000] text-transparent bg-clip-text;
+    }
+    .section-description {
+        @apply text-center text-[22px] leading-[30px] tracking-tight text-[#010D3E];
+    }
+    .section-heading {
+        @apply max-w-[540px] mx-auto;
+    }
+
+    /* Стили для карточек */
+    .card {
+        @apply p-10 border border-[#fed1c0]/10 rounded-3xl shadow-[0_7px_14px_#9b9b9b] max-w-xs w-full flex flex-col items-center text-center;
+    }
+
+    /* Стили для специфических секций и элементов */
+    .hero-section {
+        @apply pt-8 pb-0 md:pt-5 md:pb-20 md:p-10 bg-[radial-gradient(ellipse_200%_100%_at_bottom_left,#ffffff,#ffffff_100%)] bg-gradient-to-t from-[#9b9b9b] to-[#ffffff] md:bg-none overflow-x-clip;
+    }
+    .tag {
+        @apply text-sm inline-flex border border-[#bde4e7]/20 px-3 py-1 rounded-lg tracking-tight;
+    }
+    .footer-social-icon {
+        width: 24px;
+        height: 24px;
+    }
+    .contact-icon {
+        @apply w-[90%] md:w-[100%] lg:w-[110%] transition-all duration-300;
+    }
+
+    /* Стили для скрытия скроллбара */
+    .scrollbar-hidden::-webkit-scrollbar {
+        display: none; /* Полностью скрывает скроллбар */
+    }
+
+    /* Анимации и дополнительные эффекты */
+    @keyframes dots {
+        0%, 20% {
+            content: '';
+        }
+        40% {
+            content: '.';
+        }
+        60% {
+            content: '..';
+        }
+        80%, 100% {
+            content: '...';
+        }
+    }
+    .dots:after {
+        content: '';
+        animation: dots 1.5s infinite;
+    }
+}

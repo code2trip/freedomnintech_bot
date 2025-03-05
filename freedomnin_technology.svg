@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 500">
+    <text x="50%" y="50%" font-family="Roboto" font-size="100" font-weight="bold" fill="black" text-anchor="middle" dominant-baseline="middle">
+        FREEDOMNIN
+    </text>
+    <text x="50%" y="70%" font-family="Roboto" font-size="100" font-weight="bold" fill="black" text-anchor="middle" dominant-baseline="middle">
+        TECHNOLOGY
+    </text>
+</svg>

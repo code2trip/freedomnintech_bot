@@ -1,0 +1,10 @@
+{
+  "cases": [
+    { "name": "Современное решение WebApp в Telegram", "text": "Современное решение WebApp в Telegram...", "imageSrc": "miniApp", "countImg": 6, "terms": "Сроки от 2 до 4 недель.", "price": "От 100 тыс. рублей.", "visible": false },
+    { "name": "Лендинг для цифровой event платформы", "text": "Лендинг для цифровой event платформы", "imageSrc": "eventBelDesign", "countImg": 2, "terms": "Сроки от 2 до 4 недель.", "price": "От 50 тыс. рублей.", "visible": true },
+    { "name": "Лендинг для криптотокена", "text": "Лендинг для криптотокена", "imageSrc": "zenexBelDesign", "countImg": 1, "terms": "Сроки от 2 до 4 недель.", "price": "От 50 тыс. рублей.", "visible": true },
+    { "name": "Приложение для поиска устройств", "text": "Приложение для поиска устройств...", "imageSrc": "engeneeringBelDesign", "countImg": 1, "terms": "Сроки от 2 до 4 недель.", "price": "От 50 тыс. рублей.", "visible": true },
+    { "name": "Платформа для воспитания", "text": "Платформа для воспитания", "imageSrc": "platformBelDesign", "countImg": 2, "terms": "Сроки от 2 до 4 недель.", "price": "От 50 тыс. рублей.", "visible": true },
+    { "name": "Приложение для практик и медитаций", "text": "Приложение для практик и медитаций", "imageSrc": "genusBelDesign", "countImg": 1, "terms": "Сроки от 2 до 4 недель.", "price": "От 50 тыс. рублей.", "visible": true }
+  ]
+} 
