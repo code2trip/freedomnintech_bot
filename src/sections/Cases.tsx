@@ -67,6 +67,12 @@ const MobileDetector = dynamic(() => Promise.resolve(({ children }: { children: 
     return <>{children(isMobile)}</>;
 }), { ssr: false });
 
+interface CaseItem {
+  title: string;
+  description: string;
+  image: string;
+}
+
 const Cases: FC = () => {
     const { tg } = useTelegram();
     const [cases, setCases] = useState<Case[]>([]);
