@@ -11,6 +11,7 @@ import { twMerge } from "tailwind-merge";
 import dynamic from "next/dynamic";
 import casesData from '../data/cases.json';
 import React from 'react';
+import { useTelegram } from '@/lib/telegram';
 
 // Кейс
 type Case = {
@@ -66,7 +67,8 @@ const MobileDetector = dynamic(() => Promise.resolve(({ children }: { children: 
     return <>{children(isMobile)}</>;
 }), { ssr: false });
 
-export const Cases = () => {
+const Cases = () => {
+    const { tg } = useTelegram();
     const [cases, setCases] = useState<Case[]>([]);
     const [selectedCase, setSelectedCase] = useState<Case & { images: string[] } | null>(null);
 
@@ -91,58 +93,38 @@ export const Cases = () => {
 
     return (
         <>
-            <section className="bg-white" id="works">
-                <div className="section-heading">
-                    <h2 className="section-title font-bold text-[#010D3E] text-center">
-                        Наши работы
-                    </h2>
-                    <p className="section-description mt-5">
-                        Узнайте, как наши цифровые решения помогли бизнесам достичь новых высот.
-                    </p>
-                </div>
-                <div className="container mt-10 overflow-hidden md:mb-20">
-                    <style jsx global>{`
-                        .swiper-button-next,
-                        .swiper-button-prev {
-                            color: #6B7280 !important; /* text-gray-500 */
-                        }
-                        
-                        .swiper-button-next::after,
-                        .swiper-button-prev::after {
-                            font-size: 24px !important;
-                        }
-                        
-                        .swiper-button-disabled {
-                            opacity: 0.35 !important;
-                        }
-                    `}</style>
-                    <MobileDetector>
-                        {(isMobile) => (
-                            <>
-                                {isMobile && <MobileArrows />}
-                                <Swiper
-                                    navigation={!isMobile}
-                                    modules={[Navigation]}
-                                    slidesPerView="auto"
-                                    spaceBetween={24}
-                                    direction={isMobile ? 'vertical' : 'horizontal'}
-                                    className={twMerge(
-                                        "w-full",
-                                        isMobile ? "h-[500px]" : "h-auto"
-                                    )}
-                                >
-                                    {cases.map((caseItem, index) => (
-                                        <SwiperSlide key={index} className="!w-auto">
-                                            <CasesColumn 
-                                                cases={[caseItem]} 
-                                                onCaseClick={handleCaseClick} 
-                                            />
-                                        </SwiperSlide>
-                                    ))}
-                                </Swiper>
-                            </>
-                        )}
-                    </MobileDetector>
+            <section style={{ marginTop: '32px' }}>
+                <h2 style={{ 
+                    fontSize: '20px',
+                    fontWeight: 'bold',
+                    marginBottom: '16px',
+                    color: tg.themeParams.text_color || '#000000'
+                }}>
+                    Наши работы
+                </h2>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+                    {cases.map((caseItem, index) => (
+                        <div key={index} style={{
+                            backgroundColor: tg.themeParams.secondary_bg_color || '#f0f0f0',
+                            borderRadius: '12px',
+                            padding: '16px'
+                        }}>
+                            <h3 style={{ 
+                                fontSize: '18px',
+                                fontWeight: 'bold',
+                                marginBottom: '8px'
+                            }}>
+                                {caseItem.name}
+                            </h3>
+                            <p style={{ 
+                                fontSize: '14px',
+                                color: tg.themeParams.hint_color || '#666666',
+                                marginBottom: '12px'
+                            }}>
+                                {caseItem.text}
+                            </p>
+                        </div>
+                    ))}
                 </div>
             </section>
 
@@ -170,3 +152,6 @@ export const Cases = () => {
         </>
     );
 };
+
+Cases.displayName = 'Cases';
+export default Cases;
